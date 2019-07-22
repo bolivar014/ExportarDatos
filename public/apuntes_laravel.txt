@@ -330,7 +330,9 @@
     npm cache clean --force 
 
 	
-[*] 
+[*] Exportar Datos a Excel
+    importamos dependencias 
+            composer require maatwebsite/excel
 	
 [*] 
 	
