@@ -331,9 +331,40 @@
 
 	
 [*] Exportar Datos a Excel
+        Documentación Original = "https://www.nigmacode.com/laravel/Exportar-excel-en-Laravel"
+    
     importamos dependencias 
-            composer require maatwebsite/excel
+        composer require maatwebsite/excel
 	
+    Importamos en Application Service provider en Config/App
+        'providers' => [
+        ...,
+        ...,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
+        ],
+
+    Adicional Agregamos los Alias..
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,​
+
+    Creamos en la Carpeta principal App,  agregamos otra carpeta con el nombre "Exports" adicional agregamos otro archivo dentro de Exports
+        [NameExport.php]
+        ejm:
+            UsersExport.php
+    
+    En el controlador agregamos
+        // Exportamos estas librerias para su uso
+        use App\Exports\UsersExport;
+        use Maatwebsite\Excel\Facades\Excel;
+
+    adicional agregamos un metodo que ejecute esta función de generar dichos archivos. ejm
+    // Generar archivos Excel
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
+
+
 [*] 
 	
 [*] 

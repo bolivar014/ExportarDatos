@@ -8,12 +8,13 @@
                 <div class="card-header">
                     <div class="row">
                         <div class="col-3">
-                            Dashboard
+                            <strong class="form-label">Tabla de Usuarios</strong>
                         </div>
                         <div class="col-6">
                         </div>
                         <div class="col-3">
-                            <a href="#" class="btn btn-success form-control">Generar Excel</a>
+                            <a href="{{ url('/export') }}" class="btn btn-success form-control">Generar Excel</a>
+
                         </div>
                     </div>
                 </div>
@@ -25,7 +26,7 @@
                         </div>
                     @endif
 
-                    <table class="table table-bordered table-hover text-center">
+                    <table class="table table-bordered table-hover text-center table-responsive">
                         <thead class="thead-dark">
                             <tr>
                                 <th scope="col">ID</th>
