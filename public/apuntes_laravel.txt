@@ -333,7 +333,7 @@
 [*] Exportar Datos a Excel
         Documentación Original = "https://www.nigmacode.com/laravel/Exportar-excel-en-Laravel"
     
-    importamos dependencias 
+    instalamos dependencias 
         composer require maatwebsite/excel
 	
     Importamos en Application Service provider en Config/App
@@ -365,7 +365,39 @@
 
 
 
-[*] 
+[*] Exportar Datos a PDF
+        Documentación Original = "https://www.nigmacode.com/laravel/Generar-pdf-Dompdf-Laravel"
+    
+    instalamos dependencias 
+        composer require barryvdh/laravel-dompdf
+	
+    Importamos en Application Service provider en Config/App
+        'providers' => [
+        ...,
+        ...,
+        Barryvdh\DomPDF\ServiceProvider::class,
+        ],
+
+    Adicional Agregamos los Alias..
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+
+    Creamos en la Carpeta principal App,  agregamos otra carpeta con el nombre "Exports" adicional agregamos otro archivo dentro de Exports
+        [NameExport.php]
+        ejm:
+            UsersExport.php
+    
+    En el controlador agregamos
+        // Exportamos estas librerias para su uso
+        use App\Exports\UsersExport;
+        use Maatwebsite\Excel\Facades\Excel;
+
+    adicional agregamos un metodo que ejecute esta función de generar dichos archivos. ejm
+    // Generar archivos Excel
+    public function export()
+    {
+        return Excel::download(new UsersExport, 'users.xlsx');
+    }
+
 	
 [*] 
 	

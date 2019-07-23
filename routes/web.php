@@ -20,4 +20,7 @@ Auth::routes();
 // Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/home','UserController@index');
-Route::get('/export','UserController@export');
+Route::get('/export','UserController@excelUser');
+
+Route::get('/pdf','UserController@pdfUser');
+

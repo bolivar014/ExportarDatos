@@ -7,12 +7,13 @@
             <div class="card">
                 <div class="card-header">
                     <div class="row">
-                        <div class="col-3">
+                        <div class="col-4">
                             <strong class="form-label">Tabla de Usuarios</strong>
                         </div>
-                        <div class="col-6">
+                        <div class="col-4">
+                            <a href="{{ url('/pdf') }}" class="btn btn-danger form-control">Generar PDF</a>
                         </div>
-                        <div class="col-3">
+                        <div class="col-4">
                             <a href="{{ url('/export') }}" class="btn btn-success form-control">Generar Excel</a>
 
                         </div>
